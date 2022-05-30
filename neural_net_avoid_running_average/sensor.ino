@@ -10,13 +10,10 @@ void sensor()   // make a measurement
   // convert ToF to distance in cm
   double distance1 = duration1/58.3; 
   double distance2 = duration2/58.3;  
-  //double result1 = distance1;
-  //double result2 = distance2;
   
   result1.addValue(distance1);
   result2.addValue(distance2);
-  
-  
+    
   if(result1.getAverage() < 250 || result2.getAverage() < 250)
   {
     cells_in[input_A_toCell] = result1.getAverage()/1000;  Serial.print(" A= "); Serial.print(cells_in[input_A_toCell],5);

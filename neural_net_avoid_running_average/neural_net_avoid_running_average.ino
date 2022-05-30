@@ -28,17 +28,16 @@ FASTLED_USING_NAMESPACE
 #define sensor_B_out P12 
 #define sensor_B_in  P11 
 
-
+//WS2812 Defines FastLed
 #define LED_PIN      4  // neopixel pin
 #define LED_TYPE    WS2812
 #define COLOR_ORDER GRB
 #define NUM_LEDS    25
 CRGB leds[NUM_LEDS];
 
-//#define motA_E 2
+//Motor Control Defines
 #define motA_1 19
 #define motA_2 5  //pwm
-//#define motB_E 15
 #define motB_1 18 
 #define motB_2 23  //pwm
 
@@ -52,11 +51,9 @@ int modus = 0;  // 0 = training until double success then drive   1 = drive  2 =
 const int freq = 8000;
 const int Channel_0 = 0;
 const int Channel_1 = 1;
-//const int Channel_2 = 2;
-//const int Channel_3 = 3;
 const int resolution = 8;   //Resolution 8, 10, 12, 15
-int battery = 20;   //calibration for battery voltage/speed. 
 
+//Model Training Settings
 const double InitWeights = 0.44;  
 double epsilon = 0.0076;  // learning rate 
 double mom = 0.024;  
@@ -155,8 +152,6 @@ double test_out[25][cell_raster_out] = {
 
 int incomingByte = 0;
 
-//Adafruit_NeoPixel pixels(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
-
 void setup() {
   Serial.begin(115200);
   Serial.println("Start");   
@@ -165,7 +160,6 @@ void setup() {
   digitalWrite(2, HIGH); //HIGH Turns 5x5 matrix on, LOW turns it off
   // tell FastLED about the LED strip configuration
   FastLED.addLeds<LED_TYPE,LED_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
-  //FastLED.addLeds<WS2812,23,COLOR_ORDER>(leds, 4);
   
   rst();   // reset all weights to 0, maybe not necessary
   seed(); 
@@ -175,10 +169,8 @@ void setup() {
   pinMode(sensor_B_out, OUTPUT);
   pinMode(sensor_A_in, INPUT);
   pinMode(sensor_B_in, INPUT);
-  //pinMode(motA_E, OUTPUT);
   pinMode(motA_1, OUTPUT);  
   pinMode(motA_2, OUTPUT);
-  //pinMode(motB_E, OUTPUT);  
   pinMode(motB_1, OUTPUT);
   pinMode(motB_2, OUTPUT);
   ledcSetup(Channel_0, freq, resolution);

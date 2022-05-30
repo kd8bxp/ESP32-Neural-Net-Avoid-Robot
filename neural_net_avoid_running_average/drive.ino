@@ -19,8 +19,7 @@ void cw(int lft, int rgt) {
   digitalWrite(motB_1, 1);
   ledcWrite(Channel_0, map(lft, 50, 255, 50, 255));
   ledcWrite(Channel_1, map(rgt, 50, 255, 50, 255));
- // analogWrite(left2, map(lft,50,255,50,255));
- // analogWrite(right2, map(rgt,50,255,50,255));  
+ 
 }
 
 void ccw(int lft, int rgt) {
@@ -29,8 +28,7 @@ void ccw(int lft, int rgt) {
   digitalWrite(motB_1, 0);
   ledcWrite(Channel_0, lft);
   ledcWrite(Channel_1, rgt);
-  //analogWrite(left2, lft);
-  //analogWrite(right2, rgt);
+  
 }
 
 void stop() {
@@ -38,6 +36,5 @@ void stop() {
   digitalWrite(motB_1, 0);
   ledcWrite(Channel_0, 0);
   ledcWrite(Channel_1, 0);
-  //analogWrite(left2, 0);
-  //analogWrite(right2, 0);
+  
 }
