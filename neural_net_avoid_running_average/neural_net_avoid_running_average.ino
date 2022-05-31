@@ -182,7 +182,7 @@ void setup() {
 
 void loop() {  
   if(modus == 0)     {  training();  } 
-  else if(modus == 1){  sensor(); load(); outvalue(); /*set_leds();*/ serial_print_out();  drive(); }
+  else if(modus == 1){  sensor(); load(); outvalue(); set_leds(); serial_print_out();  drive(); }
   else if(modus == 2){  for(out = 0; out < 5; out++) {serial_in(); leds_out(); drive(); delay(2000);  }
   }
 }
