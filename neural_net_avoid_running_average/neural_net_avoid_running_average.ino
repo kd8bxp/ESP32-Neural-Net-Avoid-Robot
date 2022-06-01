@@ -9,6 +9,7 @@
  * May 27, 2022 - Added Running Average
  *   -May 28, 2022 - minor change to how cells are loaded from sensor function
  *   -June 1, 2022 - mixed backup training data with original training data minor changes to led routine
+ *   added motor correction
  */
  
 //More Info: https://www.the-diy-life.com/running-an-artificial-neural-network-on-an-arduino-uno/
@@ -53,6 +54,8 @@ const int freq = 8000;
 const int Channel_0 = 0;
 const int Channel_1 = 1;
 const int resolution = 8;   //Resolution 8, 10, 12, 15
+
+int cal = 25; //motor correction
 
 //Model Training Settings
 const double InitWeights = 0.44;  
@@ -184,7 +187,7 @@ void setup() {
 void loop() {  
   if(modus == 0)     {  training();  } 
   else if(modus == 1){  sensor(); load(); outvalue(); set_leds(); serial_print_out();  drive(); }
-  else if(modus == 2){  for(out = 0; out < 5; out++) {serial_in(); leds_out(); drive(); delay(2000);  }
+  else if(modus == 2){  for(out = 0; out < 5; out++) {serial_in(); leds_out(); drive(); delay(500);  }
   }
 }
 
