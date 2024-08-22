@@ -1,3 +1,7 @@
+# Archived Aug 21, 2024
+
+This code is for the Starry:Bit Robot, I no longer own this robot. Unlike my other Starry Bit code, this is based on an ESP32 micro-controller (BPI:bit).  While I no longer own this robot, I still like this project. I will most likely continue to work on this overall, but with a different robot, and different micro-controller.  I have decided to archive this code because of this.  This is being left for historical reasons. No support will be given, thanks.
+
 # ESP32 Neural Network Avoid Robot
 
 This work is based on AI_delta_float_v1.2 by Tim Kälin 14-04-2020.  
